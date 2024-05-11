@@ -1,12 +1,12 @@
-import { Image, StyleSheet, Platform, Pressable, FlatList } from 'react-native';
-import ParallaxScrollView from '@/components/ParallaxScrollView';
+import { Image, StyleSheet, Platform, Pressable, FlatList, SafeAreaView } from 'react-native'
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
 import { useEffect,useState } from 'react';
 import { Link } from 'expo-router';
 export default function HomeScreen() {
   const [info,setInfo] = useState([]);
-  fetch('https://api.themoviedb.org/3/discover/movie?with_original_language=hi&release_date.gte=2023-05-16&with_origin_country=IN&page=1', {
+useEffect(()=>{
+  try{fetch('https://api.themoviedb.org/3/discover/movie?with_original_language=hi&release_date.gte=2023-05-16&with_origin_country=IN&page=1', {
     method: 'GET',
     headers: {
         'Content-Type': 'application/json',
@@ -14,20 +14,23 @@ export default function HomeScreen() {
     }
   })
   .then(data=>data.json())
-  .then(result=>setInfo(result.results))
+  .then(result=>setInfo(result.results))}
+catch(err){
+console.log(err)
+}},[])
  const fix ='https://image.tmdb.org/t/p/w440_and_h660_face/'
   return (
-    <ParallaxScrollView
+    <SafeAreaView
      >
       <ThemedView style={styles.titleContainer}>
         <ThemedText type="title">Latest Movies</ThemedText>
-        <FlatList data={info} showsVerticalScrollIndicator={false}  
-        renderItem={({element})=>{
+        <FlatList data={info} showsVerticalScrollIndicator={false}  keyExtractor={element=>element.id}
+        renderItem={({element})=>(
 <Link href={"/movieinfo/" + element.id} key={element.id} asChild><Pressable>
                 <Image source={fix+element.poster_path} contentFit="cover"/>
                 <ThemedText>{element.title}</ThemedText>
-                </Pressable></Link>
-        }} />
+                </Pressable></Link>)
+        }/>
       </ThemedView>
       <ThemedView style={styles.stepContainer}>
         <ThemedText type="subtitle">Step 1: Try it</ThemedText>
@@ -56,7 +59,7 @@ export default function HomeScreen() {
           <ThemedText type="defaultSemiBold">app-example</ThemedText>.
         </ThemedText>
       </ThemedView>
-    </ParallaxScrollView>
+    </SafeAreaView>
   );
 }
 

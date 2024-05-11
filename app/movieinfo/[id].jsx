@@ -21,8 +21,9 @@ function id() {
   return (
     <ThemedView style={styles.stepContainer}>
                 <ThemedText type="subtitle">{id}</ThemedText>
- <ThemedText type="title">{info.title}</ThemedText>
- <Image source={fix+info.poster_path} contentFit="cover"/>
+
+ {info&&<ThemedView><ThemedText type="title">{info.title}</ThemedText>
+ <Image source={fix+info.poster_path} contentFit="cover"/></ThemedView>}
     </ThemedView>
   )
 }

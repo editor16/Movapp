@@ -1,5 +1,5 @@
 import React,{useEffect,useState} from 'react'
-import { Image } from 'react-native';
+import { Image,StyleSheet } from 'react-native';
 import { useLocalSearchParams } from 'expo-router'
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';

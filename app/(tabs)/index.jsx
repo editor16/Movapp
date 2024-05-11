@@ -1,4 +1,4 @@
-import { Image, StyleSheet, Platform, Pressable } from 'react-native';
+import { Image, StyleSheet, Platform, Pressable, FlatList } from 'react-native';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
@@ -21,12 +21,13 @@ export default function HomeScreen() {
      >
       <ThemedView style={styles.titleContainer}>
         <ThemedText type="title">Latest Movies</ThemedText>
-        {info && info.map((element) => {
-              return <Link href={"/movieinfo/" + element.id} key={element.id} asChild><Pressable>
+        <FlatList data={info} showsVerticalScrollIndicator={false}  
+        renderItem={({element})=>{
+<Link href={"/movieinfo/" + element.id} key={element.id} asChild><Pressable>
                 <Image source={fix+element.poster_path} contentFit="cover"/>
                 <ThemedText>{element.title}</ThemedText>
                 </Pressable></Link>
-        })}
+        }} />
       </ThemedView>
       <ThemedView style={styles.stepContainer}>
         <ThemedText type="subtitle">Step 1: Try it</ThemedText>

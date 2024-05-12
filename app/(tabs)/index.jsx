@@ -2,26 +2,19 @@ import { Image, StyleSheet, Platform, Pressable, FlatList } from 'react-native'
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
 import { useEffect,useState } from 'react';
-import { Link } from 'expo-router';
 export default function HomeScreen() {
   const [info,setInfo] = useState([]);
 useEffect(()=>{
-  fetch('https://api.themoviedb.org/3/discover/movie?with_original_language=hi&release_date.gte=2023-05-16&with_origin_country=IN&page=1', {
-    method: 'GET',
-    headers: {
-        'Content-Type': 'application/json',
-          "Authorization":"Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkYzcyOWZmZGE5M2IzOTM2ZGNmYjM1NzRiN2QwZThlOSIsInN1YiI6IjY1MTgxNzI3YTE5OWE2MDBmZTc2MDA0YyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.vSch5IN-bBtXO_kX3tW5iluzXzbKhfncwcBQhmmPGL4"
-    }
-  })
-  .then(data=>data.json())
-  .then(result=>setInfo(result.results))
+  fetch('https://type.fit/api/quotes')
+  .then(data=>data.data())
+  .then(result=>setInfo(result))
   .catch(error=>console.error(error))},[])
    
   const renderItem = ({ item }) => (
-    <Link href={"/movieinfo/" + item.id} key={item.id} asChild><Pressable>
-    <Image source={fix+item.poster_path} contentFit="cover"/>
-    <ThemedText>{item.title}</ThemedText>
-    </Pressable></Link>
+    <ThemedView>
+   <ThemedText>{item.author}</ThemedText>
+   <ThemedText>{item.text}</ThemedText>
+   </ThemedView>
   );
  const fix ='https://image.tmdb.org/t/p/w440_and_h660_face/'
   return (

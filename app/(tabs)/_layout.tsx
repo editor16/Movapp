@@ -37,7 +37,7 @@ export default function TabLayout() {
                options={{
                 title: 'Dinner',
                           tabBarIcon: ({ color, focused }) => (
-                             <TabBarIcon name={focused ? 'pizza' : 'pizza-outline'} color={color} />
+                             <TabBarIcon name={focused ? 'restaurant' : 'restaurant-outline'} color={color} />
                                         ),
                                 }}
               />

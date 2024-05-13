@@ -30,7 +30,7 @@ const menu =[{title:"Veg Plate",imag:"menu-1.jpg"},{title:"Egg & Fries",imag:"me
 }
 
 const styles = StyleSheet.create({
-  titleContainer: {    flexDirection: 'column', marginTop:8,
+  titleContainer: {  flexDirection: 'column', marginTop:8,
     alignItems: 'center',
     gap: 8,
   },

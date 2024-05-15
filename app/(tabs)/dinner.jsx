@@ -8,16 +8,16 @@ const menu =[{title:"Veg Plate",imag:"menu-1.jpg"},{title:"Egg & Fries",imag:"me
   const [loaded] = useFonts({
                 Pacifico: require('../assets/fonts/Pacifico-Regular.ttf'),
                                      })
- const fix ="https://webtonrestraunts.netlify.app/img/"
+
   return (
     <ParallaxScrollView>
       <ThemedView style={styles.titleContainer}>
-       <ThemedText type="title" style={{color:"#e8a541",fontFamily:"Pacifico"}}>Food Menu</ThemedText>
+       <ThemedText type="title" style={{color:"#e8a541",fontFamily:"Pacifico-Regular"}}>Food Menu</ThemedText>
         <ThemedText type="title">Most Popular Items</ThemedText>
        </ThemedView>
-        {menu.map((item,index)=>{
+        {menu.map((item,index)=>{const src='../../assets/images/'+item.imag
           return <ThemedView style={{flex:1,gap:15,flexDirection:"row"}} key={index}>
-          <Image alt='Check internet' source={require('../../assets/images/'+item.imag)} style={{marginTop:9,marginBottom:9,width:100,flex:1}} />
+          <Image alt='Check internet' source={require(src)} style={{marginTop:9,marginBottom:9,width:100,flex:1}} />
           <ThemedView style={{flex:3}}>
         <ThemedView style={styles.stepContainer}>
            <ThemedText type="subtitle">{item.title}</ThemedText>

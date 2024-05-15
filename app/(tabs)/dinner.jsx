@@ -6,6 +6,7 @@ import * as SplashScreen from 'expo-splash-screen'
 import { useEffect } from 'react';
 SplashScreen.preventAutoHideAsync();
 export default function Dinner() {
+  const fix ="https://webtonrestraunts.netlify.app/img/"
 const menu =[{title:"Veg Plate",imag:"menu-1.jpg"},{title:"Egg & Fries",imag:"menu-2.jpg"},{title:"Olive pizza",imag:"menu-3.jpg"},{title:"Salad world",imag:"menu-5.jpg"},{title:"Fries",imag:"menu-6.jpg"},{title:"Tandoori pizza",imag:"menu-7.jpg"}]
 const [loaded] = useFonts({
   Pacifico: require('../assets/fonts/Pacifico-Regular.ttf'),
@@ -26,9 +27,9 @@ useEffect(() => {
        <ThemedText type="title" style={{color:"#e8a541",fontFamily:"Pacifico-Regular"}}>Food Menu</ThemedText>
         <ThemedText type="title">Most Popular Items</ThemedText>
        </ThemedView>
-        {menu.map((item,index)=>{const src='../../assets/images/'+item.imag
+        {menu.map((item,index)=>{
           return <ThemedView style={{flex:1,gap:15,flexDirection:"row"}} key={index}>
-          <Image alt='Check internet' source={require(src)} style={{marginTop:9,marginBottom:9,width:100,flex:1}} />
+          <Image alt='Check internet' source={{uri:fix+item.imag}} style={{marginTop:9,marginBottom:9,width:100,flex:1}} />
           <ThemedView style={{flex:3}}>
         <ThemedView style={styles.stepContainer}>
            <ThemedText type="subtitle">{item.title}</ThemedText>

@@ -18,7 +18,7 @@ const menu =[{title:"Veg Plate",imag:"menu-1.jpg"},{title:"Egg & Fries",imag:"me
        </ThemedView>
         {menu.map((item,index)=>{
           return <ThemedView style={{flex:1,gap:15,flexDirection:"row"}} key={index}>
-          <Image alt='Check internet' source={{uri:fix+item.imag}} style={{marginTop:9,marginBottom:9,width:100,flex:1}} />
+          <Image alt='Check internet' source={require('../../assets/images/'+item.imag)} style={{marginTop:9,marginBottom:9,width:100,flex:1}} />
           <ThemedView style={{flex:3}}>
         <ThemedView style={styles.stepContainer}>
            <ThemedText type="subtitle">{item.title}</ThemedText>

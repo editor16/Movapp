@@ -3,6 +3,7 @@ import ParallaxScrollView from '@/components/ParallaxScrollView'
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
 import { useFonts } from 'expo-font';
+import { Pacifico_400Regular } from '@expo-google-fonts/dev';
 import * as SplashScreen from 'expo-splash-screen'
 import { useEffect } from 'react';
 SplashScreen.preventAutoHideAsync();
@@ -10,7 +11,7 @@ export default function SecondScreen() {
     const fix ="https://webtonrestraunts.netlify.app/img/"
 const menu =[{title:"Veg Plate",imag:"menu-1.jpg"},{title:"Egg & Fries",imag:"menu-2.jpg"},{title:"Olive pizza",imag:"menu-3.jpg"},{title:"Salad world",imag:"menu-5.jpg"},{title:"Fries",imag:"menu-6.jpg"},{title:"Tandoori pizza",imag:"menu-7.jpg"}]
 const [loaded] = useFonts({
-  Pacifico: require('@expo-google-fonts/dev/Pacifico'),
+  Pacifico: Pacifico_400Regular,
     });
 useEffect(() => {
       if (loaded) {

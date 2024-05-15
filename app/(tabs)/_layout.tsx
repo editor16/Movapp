@@ -38,7 +38,7 @@ export default function TabLayout() {
                 title: 'Dinner',
                      tabBarIcon: ({ color, focused }) => (
                      <TabBarIcon name={focused ? 'restaurant' : 'restaurant-outline'} color={color} />
-                                 ),
+                        ),
                         }}
               />
     </Tabs>

@@ -1,15 +1,18 @@
 import { Image, StyleSheet } from 'react-native'
 import ParallaxScrollView from '@/components/ParallaxScrollView'
 import { ThemedText } from '@/components/ThemedText';
+import { useFonts } from 'expo-font';
 import { ThemedView } from '@/components/ThemedView';
 export default function Dinner() {
 const menu =[{title:"Veg Plate",imag:"menu-1.jpg"},{title:"Egg & Fries",imag:"menu-2.jpg"},{title:"Olive pizza",imag:"menu-3.jpg"},{title:"Salad world",imag:"menu-5.jpg"},{title:"Fries",imag:"menu-6.jpg"},{title:"Tandoori pizza",imag:"menu-7.jpg"}]
-  
+  const [loaded] = useFonts({
+                Pacifico: require('../assets/fonts/Pacifico-Regular.ttf'),
+                                     })
  const fix ="https://webtonrestraunts.netlify.app/img/"
   return (
     <ParallaxScrollView>
       <ThemedView style={styles.titleContainer}>
-       <ThemedText type="title" style={{color:"#e8a541"}}>Food Menu</ThemedText>
+       <ThemedText type="title" style={{color:"#e8a541",fontFamily:"Pacifico"}}>Food Menu</ThemedText>
         <ThemedText type="title">Most Popular Items</ThemedText>
        </ThemedView>
         {menu.map((item,index)=>{

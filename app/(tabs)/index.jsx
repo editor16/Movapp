@@ -2,7 +2,7 @@ import { Image, StyleSheet } from 'react-native'
 import ParallaxScrollView from '@/components/ParallaxScrollView'
 import { ThemedText } from '@/components/ThemedText';
 import { useFonts } from 'expo-font';
-import { Pacifico_400Regular } from '@expo-google-fonts/dev';
+import {Cookie_400Regular} from '@expo-google-fonts/cookie'
 import { ThemedView } from '@/components/ThemedView';
 import * as SplashScreen from 'expo-splash-screen'
 import { useEffect } from 'react';
@@ -11,7 +11,7 @@ export default function HomeScreen() {
   const fix ="https://webtonrestraunts.netlify.app/img/"
 const menu =[{title:"Veg Plate",imag:"menu-1.jpg"},{title:"Egg & Fries",imag:"menu-2.jpg"},{title:"Olive pizza",imag:"menu-3.jpg"},{title:"Salad world",imag:"menu-5.jpg"},{title:"Fries",imag:"menu-6.jpg"},{title:"Tandoori pizza",imag:"menu-7.jpg"}]
   const [loaded] = useFonts({
-        Pacifico: Pacifico_400Regular,
+        Cookie_400Regular,
           });
      useEffect(() => {
             if (loaded) {
@@ -27,7 +27,7 @@ const menu =[{title:"Veg Plate",imag:"menu-1.jpg"},{title:"Egg & Fries",imag:"me
   return (
     <ParallaxScrollView>
       <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title" style={{color:"#e8a541",fontFamily:"Pacifico"}}>Food Menu</ThemedText>
+        <ThemedText type="title" style={{color:"#e8a541",fontFamily:"Cookie_400Regular"}}>Food Menu</ThemedText>
         <ThemedText type="title">Most Popular Items</ThemedText>
        </ThemedView>
         {menu.map((item,index)=>{
